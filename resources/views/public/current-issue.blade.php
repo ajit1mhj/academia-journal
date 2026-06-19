@@ -221,7 +221,7 @@
                         {{-- Authors --}}
                         <div class="text-muted small mb-2">
                             <i class="bi bi-people me-1"></i>
-                            {{ $article->authors->pluck('name')->implode(', ') }}
+                            {{ $article->authors }}
                         </div>
 
                         {{-- Abstract --}}

@@ -64,13 +64,21 @@ Route::get('/publication-ethics', function () {
 
 // Individual issue page — e.g. /volume-1/issue-1
 Route::get('/volume-{volumeNo}/issue-{issueNo}', [
-    \App\Http\Controllers\Public\IssueController::class, 'show'
+    \App\Http\Controllers\Public\IssueController::class,
+    'show'
 ])->name('issue.show');
 
 Route::get('/current-issue', [
-    \App\Http\Controllers\Public\IssueController::class, 'current'
+    \App\Http\Controllers\Public\IssueController::class,
+    'current'
 ])->name('current-issue');
+Route::get('/submission-checklist', function () {
+    return view('public.submission-checklist');
+})->name('submission-checklist');
 
+Route::get('/author-guidelines', function () {
+    return view('public.author-guidelines');
+})->name('author-guidelines');
 Route::get('/current-issue', function () {
     $issueId = request('issue');
 
@@ -78,16 +86,14 @@ Route::get('/current-issue', function () {
         $issue = \App\Models\Issue::where('id', $issueId)
             ->with([
                 'volume',
-                'articles.authors',
-                'articles.files', // ← must include files
+                'articles.files',
             ])
             ->first();
     } else {
         $issue = \App\Models\Issue::where('status', 'published')
             ->with([
                 'volume',
-                'articles.authors',
-                'articles.files', // ← must include files
+                'articles.files',
             ])
             ->latest('publication_date')
             ->first();
@@ -95,7 +101,6 @@ Route::get('/current-issue', function () {
 
     return view('public.current-issue', compact('issue'));
 })->name('current-issue');
-
 Route::get('/archives', [ArchiveController::class, 'index'])->name('archives');
 
 Route::prefix('articles')->name('articles.')->group(function () {
