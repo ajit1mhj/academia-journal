@@ -26,18 +26,18 @@
                         <form method="GET" action="{{ route('archives') }}">
                             <div class="mb-2">
                                 <input type="text" name="keyword" class="form-control form-control-sm"
-                                       placeholder="Keywords, title, abstract..."
-                                       value="{{ request('keyword') }}">
+                                    placeholder="Keywords, title, abstract..."
+                                    value="{{ request('keyword') }}">
                             </div>
                             <div class="mb-2">
                                 <input type="text" name="author" class="form-control form-control-sm"
-                                       placeholder="Author name"
-                                       value="{{ request('author') }}">
+                                    placeholder="Author name"
+                                    value="{{ request('author') }}">
                             </div>
                             <div class="mb-2">
                                 <input type="text" name="doi" class="form-control form-control-sm"
-                                       placeholder="DOI"
-                                       value="{{ request('doi') }}">
+                                    placeholder="DOI"
+                                    value="{{ request('doi') }}">
                             </div>
                             <div class="mb-3">
                                 <select name="volume" class="form-select form-select-sm">
@@ -74,7 +74,7 @@
                             <div class="d-flex flex-wrap gap-1 mt-1">
                                 @foreach($volume->issues as $issue)
                                 <a href="{{ request()->fullUrlWithQuery(['volume' => $volume->id]) }}"
-                                   class="badge bg-light text-dark border text-decoration-none">
+                                    class="badge bg-light text-dark border text-decoration-none">
                                     Issue {{ $issue->issue_no }}
                                 </a>
                                 @endforeach
@@ -99,13 +99,13 @@
                         <div class="text-muted small mb-1">{{ $article->subject_area }}</div>
                         <h6 class="fw-bold">
                             <a href="{{ route('articles.show', $article) }}"
-                               class="text-decoration-none text-dark">
+                                class="text-decoration-none text-dark">
                                 {{ $article->title }}
                             </a>
                         </h6>
                         <div class="text-muted small mb-2">
                             <i class="bi bi-people me-1"></i>
-                            {{ $article->authors->pluck('name')->implode(', ') }}
+                            {{ $article->authors }}
                         </div>
                         <p class="small text-muted mb-2">{{ Str::limit($article->abstract, 180) }}</p>
                         <div class="d-flex flex-wrap gap-3 align-items-center">
@@ -123,9 +123,9 @@
                             </span>
                             <div class="ms-auto d-flex gap-1">
                                 <a href="{{ route('articles.show', $article) }}"
-                                   class="btn btn-sm btn-outline-primary">Read</a>
+                                    class="btn btn-sm btn-outline-primary">Read</a>
                                 <a href="{{ route('articles.download', $article) }}"
-                                   class="btn btn-sm btn-outline-secondary">
+                                    class="btn btn-sm btn-outline-secondary">
                                     <i class="bi bi-download"></i>
                                 </a>
                             </div>

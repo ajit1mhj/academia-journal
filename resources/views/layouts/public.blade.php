@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'AJMS') — Academic Journal</title>
+
+    <link rel="icon" type="image/png" href="{{ asset('storage/images/logo.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
@@ -101,6 +103,26 @@
             padding-top: 16px;
             font-size: 0.8rem;
         }
+
+        .dropdown-menu {
+            border-radius: 10px;
+            min-width: 220px;
+        }
+
+        .dropdown-item {
+            font-size: 0.9rem;
+            padding: 0.65rem 1rem;
+        }
+
+        .dropdown-item:hover {
+            background: #f5f8fc;
+            color: #1a3c5e;
+        }
+
+        .dropdown-item:active {
+            background: #1a3c5e;
+            color: #fff;
+        }
     </style>
     @stack('styles')
 </head>
@@ -111,7 +133,7 @@
     <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="bi bi-journal-richtext me-2"></i>Academia Journal
+                <img src="{{ asset('storage/images/logo.png') }}" alt="AJMS Logo" width="24" height="24" class="me-2">Academia Journal
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -136,11 +158,49 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('archives') ? 'active' : '' }}"
-                            href="{{ route('archives') }}">Archives</a>
+                            href="{{ route('archives') }}">
+                            Archives
+                        </a>
                     </li>
+
+                    {{-- Authors Dropdown --}}
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle
+        {{ request()->routeIs('submission-checklist') ||
+           request()->routeIs('author-guidelines') ||
+           request()->routeIs('submit-manuscript')
+            ? 'active'
+            : '' }}"
+                            href="#"
+                            id="authorsDropdown"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            For Authors
+                        </a>
+
+                        <ul class="dropdown-menu shadow border-0" aria-labelledby="authorsDropdown">
+                            <li>
+                                <a class="dropdown-item"
+                                    href="{{ route('submission-checklist') }}">
+                                    Submission Checklist
+                                </a>
+                            </li>
+
+                            <li>
+                                <a class="dropdown-item"
+                                    href="{{ route('author-guidelines') }}">
+                                    Author Guidelines
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}"
-                            href="{{ route('contact') }}">Contact</a>
+                            href="{{ route('contact') }}">
+                            Contact
+                        </a>
                     </li>
                 </ul>
                 <div class="d-flex gap-2">
@@ -165,9 +225,17 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <h6><i class="bi bi-journal-richtext me-2"></i>AJ</h6>
-                    <p style="font-size:0.85rem;opacity:0.8">
-                        Academia Journal — a peer-reviewed open-access journal
+                    <div class="d-flex align-items-center mb-2">
+                        <img src="{{ asset('storage/images/college-logo.png') }}"
+                            alt="AJMS Logo"
+                            width="200"
+                            height="80"
+                            class="me-2">
+
+                    </div>
+
+                    <p style="font-size:1rem;opacity:0.8">
+                        Academia Journal- Open-access journal
                         committed to research excellence.
                     </p>
                 </div>
@@ -201,7 +269,7 @@
                 </div>
             </div>
             <div class="footer-bottom text-center">
-                &copy; {{ date('Y') }} AJMS. All rights reserved.
+                &copy; 2026 Academia International College. All rights reserved.
             </div>
         </div>
     </footer>

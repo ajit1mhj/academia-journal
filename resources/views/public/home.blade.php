@@ -159,16 +159,6 @@
             {{-- RIGHT MAIN CONTENT --}}
             <div class="col-md-9"> {{-- ← MUST be inside the row --}}
 
-                {{-- Welcome Banner --}}
-                <div class="alert mb-4 py-3 px-4 border-0"
-                    style="background:#eef4fb;border-left:4px solid #1a3c5e !important;border-radius:8px">
-                    <p class="mb-0 small">
-                        Welcome to <strong>Academic Journal Management System (AJMS)</strong> —
-                        a peer-reviewed, open-access scholarly journal committed to publishing
-                        high-quality original research across multiple academic disciplines.
-                    </p>
-                </div>
-
                 {{-- Current Issue --}}
                 @php
                 $currentIssue = \App\Models\Issue::where('status','published')
