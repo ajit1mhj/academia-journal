@@ -47,14 +47,14 @@
                     <img src="{{ asset('storage/' . $journal->cover_image) }}"
                         alt="Journal Cover"
                         class="img-fluid rounded shadow-sm"
-                        style="max-width:140px">
+                        style="width:220px;height:270px">
                 </div>
                 @elseif($latestIssue?->cover_image)
                 <div class="text-center mb-2">
                     <img src="{{ asset('storage/' . $latestIssue->cover_image) }}"
                         alt="Issue Cover"
                         class="img-fluid rounded shadow-sm"
-                        style="max-width:140px">
+                        style="width:140px;height:190px">
                 </div>
                 @else
                 <div class="text-center mb-2">
@@ -268,9 +268,8 @@
                     ['value' => \App\Models\Article::where('status','published')->count(), 'label' => 'Published Articles', 'icon' => 'bi-file-earmark-check'],
                     ['value' => \App\Models\Volume::count(), 'label' => 'Volumes', 'icon' => 'bi-collection'],
                     ['value' => \App\Models\Issue::where('status','published')->count(), 'label' => 'Issues', 'icon' => 'bi-layers'],
-                    ['value' => \App\Models\User::whereHas('role', fn($q) => $q->where('name','author'))->count(), 'label' => 'Authors', 'icon' => 'bi-people'],
                     ] as $stat)
-                    <div class="col-6 col-md-3">
+                    <div class="col-6 col-md-4">
                         <div class="card border-0 shadow-sm text-center py-3">
                             <i class="bi {{ $stat['icon'] }} text-primary fs-4 mb-1"></i>
                             <div class="fw-bold fs-5" style="color:#1a3c5e">{{ $stat['value'] }}</div>
@@ -362,8 +361,8 @@
     .section-title {
         font-size: 1rem;
         font-weight: 700;
-        color: #1a3c5e;
-        border-left: 3px solid #2d6a9f;
+        color: #00366b;
+        border-left: 3px solid #004989;
         padding-left: 10px;
         letter-spacing: 0.5px;
     }

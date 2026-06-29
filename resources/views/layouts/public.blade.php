@@ -10,6 +10,15 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        :root {
+            --primary: #0B2E59;
+            --primary-dark: #082447;
+            --primary-light: #1D4F91;
+            --secondary: #F5F8FC;
+            --border: #E4EAF2;
+            --text: #2C3E50;
+        }
+
         body {
             font-family: 'Segoe UI', sans-serif;
         }
@@ -58,8 +67,8 @@
         .section-title {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #1a3c5e;
-            border-left: 4px solid #2d6a9f;
+            color: #0B2E59;
+            border-left: 4px solid #1D4F91;
             padding-left: 12px;
             margin-bottom: 1.5rem;
         }
