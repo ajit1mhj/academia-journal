@@ -9,7 +9,7 @@
         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
             <div>
                 <h1 class="fw-bold mb-1" style="font-size:1.8rem">
-                    Academic Journal Management System
+                    Academia Journal
                 </h1>
                 <p class="mb-0 opacity-85">
                     A peer-reviewed, open-access journal publishing high-quality research.
@@ -47,7 +47,7 @@
                     <img src="{{ asset('storage/' . $journal->cover_image) }}"
                         alt="Journal Cover"
                         class="img-fluid rounded shadow-sm"
-                        style="width:220px;height:270px">
+                        style="width:480px;height:440px">
                 </div>
                 @elseif($latestIssue?->cover_image)
                 <div class="text-center mb-2">

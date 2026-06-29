@@ -12,8 +12,8 @@
     <style>
         :root {
             --primary: #0B2E59;
-            --primary-dark: #082447;
-            --primary-light: #1D4F91;
+            --primary-dark: #003372;
+            --primary-light: #003170;
             --secondary: #F5F8FC;
             --border: #E4EAF2;
             --text: #2C3E50;
@@ -49,7 +49,7 @@
         }
 
         .hero {
-            background: linear-gradient(135deg, #1a3c5e 0%, #2d6a9f 100%);
+            background: #1a3c5e;
             color: #fff;
             padding: 80px 0;
         }
@@ -219,7 +219,7 @@
                     </a>
                     @else
                     <a href="{{ route('login') }}" class="btn btn-sm btn-outline-primary">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-sm btn-primary">Submit Manuscript</a>
+                    <a href="{{ route('register') }}" class="btn btn-sm btn-primary" style="background-color: #003170;">Submit Manuscript</a>
                     @endauth
                 </div>
             </div>

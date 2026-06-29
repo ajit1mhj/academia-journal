@@ -18,7 +18,7 @@
         .sidebar {
             width: 250px;
             min-height: 100vh;
-            background: #1a3c5e;
+            background: #003a73;
             position: fixed;
             top: 0;
             left: 0;
@@ -117,7 +117,7 @@
 
         .badge-submitted {
             background: #e3f2fd;
-            color: #1565c0;
+            color: #013878;
         }
 
         .badge-under_review {
